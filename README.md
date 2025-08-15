@@ -1,111 +1,37 @@
-💰 Gerenciador de Finanças Pessoais
+## 💰  Gerenciador de Finanças Pessoais
 
-Um sistema fullstack para controle de finanças pessoais, desenvolvido com NestJS + GraphQL no backend e Vue 3 + Apollo Client no frontend.
-Ideal para acompanhar receitas, despesas, saldo e gerar relatórios mensais de forma simples e visual.
+Um sistema completo para controle financeiro pessoal, permitindo registrar receitas e despesas, organizar contas e categorias, além de visualizar relatórios e gráficos para melhor gestão do seu dinheiro.
+Este projeto foi desenvolvido para estudos e composição de portfólio, utilizando tecnologias modernas no backend e frontend.
 
-✨ Funcionalidades
-Funcionalidade	Descrição
-👤 Criar Conta	Cadastro de usuários com autenticação via JWT
-💵 Criar Lançamentos	Adicionar receitas ou despesas
-🏦 Gerenciar Contas	Conta corrente, cartão de crédito, etc
-🗂 Categorias	Classificação de lançamentos
-📅 Listagem do Mês	Exibir movimentações do período
-🔍 Filtros	Pesquisa por tipo, categoria ou conta
-💲 Saldo Diário e Mensal	Resumo rápido da situação financeira
-📊 Relatórios Gráficos	Análise visual das finanças
-🛠 Tecnologias Utilizadas
-Backend
+## 🚀 Funcionalidades - Core
 
-NestJS
+- 👤 Criar Conta – Registro de usuários com autenticação segura.
+- 💵 Criar Lançamentos – Adicione receitas ou despesas.
+- 🏦 Criar Contas – Ex.: Cartão de Crédito, Cartão de Débito, Conta Corrente.
+- 🗂 Criar Categorias – Classifique seus lançamentos.
+- 📅 Listar Lançamentos do Mês – Visualize todas as movimentações do período.
+- 🔍 Filtrar Lançamentos – Pesquisa por categoria, conta ou tipo.
+- 📊 Relatórios Mensais – Exibição de gráficos para melhor análise.
+- 💲 Saldo Diário e Mensal – Veja rapidamente como está a sua situação financeira.
 
-GraphQL
+## 🛠 Tecnologias Utilizadas - Backend
 
-TypeORM
+- NestJS – Framework Node.js para construção de APIs.
+- GraphQL – Consulta e manipulação de dados.
+- TypeORM – ORM para integração com banco de dados.
+- PostgreSQL – Banco de dados relacional.
+- JWT – Autenticação baseada em tokens.
+- BCrypt – Criptografia de senhas.
+- Moment.js – Manipulação de datas.
 
-PostgreSQL
+# Frontend
+- Vue.js – Framework JavaScript progressivo.
+- Apollo Client – Integração GraphQL no frontend.
+- Tailwind CSS – Estilização moderna e responsiva.
+- Vite – Build tool rápida e leve.
+- Pinia – Gerenciamento de estado.
 
-JWT (Autenticação)
-
-BCrypt (Criptografia de senhas)
-
-Moment.js (Manipulação de datas)
-
-Frontend
-
-Vue.js 3
-
-Apollo Client (Integração GraphQL)
-
-Tailwind CSS
-
-Vite
-
-Pinia (Gerenciamento de estado)
-
-📐 Arquitetura do Projeto
-flowchart LR
-    subgraph Frontend [Frontend - Vue 3 + Tailwind + Apollo]
-        UI[Interface de Usuário]
-        Pinia[Gerenciamento de Estado]
-        Apollo[Apollo Client]
-    end
-
-    subgraph Backend [Backend - NestJS + GraphQL]
-        Auth[JWT Auth Service]
-        Services[Services]
-        TypeORM[TypeORM Models]
-        DB[(PostgreSQL)]
-    end
-
-    UI --> Pinia
-    Pinia --> Apollo
-    Apollo --> Backend
-    Backend --> Auth
-    Backend --> Services
-    Services --> TypeORM
-    TypeORM --> DB
-
-📡 Exemplo de Queries & Mutations (GraphQL)
-Criar usuário
-mutation {
-  createUser(input: {
-    name: "João Silva",
-    email: "joao@email.com",
-    password: "123456"
-  }) {
-    id
-    name
-    email
-  }
-}
-
-Criar lançamento
-mutation {
-  createLancamento(input: {
-    tipo: "DESPESA",
-    valor: 150.75,
-    descricao: "Supermercado",
-    contaId: 1,
-    categoriaId: 2
-  }) {
-    id
-    descricao
-    valor
-    data
-  }
-}
-
-Listar lançamentos do mês
-query {
-  lancamentosDoMes(mes: 8, ano: 2025) {
-    descricao
-    valor
-    tipo
-    data
-  }
-}
-
-📦 Como Executar o Projeto
+## 📦 Como Executar o Projeto
 Pré-requisitos
 
 Node.js instalado
@@ -114,40 +40,41 @@ PostgreSQL configurado
 
 Yarn ou NPM
 
-<details> <summary>📜 Backend</summary>
-# Clone o repositório
-git clone https://github.com/seuusuario/gerenciador-financas.git
+## Instalando o Backend
+```
+    # Clone o repositório
+    git clone https://github.com/seuusuario/gerenciador-financas.git
 
-# Acesse o backend
-cd gerenciador-financas/backend
+    # Acesse a pasta do backend
+    cd gerenciador-financas/backend
 
-# Instale as dependências
-yarn install
+    # Instale as dependências
+    yarn install
 
-# Configure as variáveis de ambiente
-cp .env.example .env
+    # Configure as variáveis de ambiente (.env)
+    cp .env.example .env
 
-# Execute as migrations
-yarn typeorm migration:run
+    # Execute as migrations
+    yarn typeorm migration:run
 
-# Inicie o servidor
-yarn start:dev
+    # Inicie o servidor
+    yarn start:dev
+```
+## Instalando o Frontend
+```
+    # Acesse a pasta do frontend
+    cd ../frontend
 
-</details> <details> <summary>💻 Frontend</summary>
-# Acesse o frontend
-cd ../frontend
+    # Instale as dependências
+    yarn install
 
-# Instale as dependências
-yarn install
+    # Inicie o projeto
+    yarn dev
+```
+📸 Screenshots (opcional)
 
-# Inicie o projeto
-yarn dev
+Adicione imagens do sistema para deixar o README mais atrativo.
 
-</details>
-📸 Screenshots
+📌 Objetivo do Projeto
 
-(adicione imagens reais da aplicação aqui)
-
-📜 Licença
-
-Este projeto está licenciado sob a licença MIT.
+Este sistema foi criado com foco em aprendizado e demonstração de habilidades para portfólio, explorando boas práticas de arquitetura, autenticação e integração entre backend e frontend
